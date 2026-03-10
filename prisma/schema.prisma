@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  phone     String   @unique // WhatsApp number
+  name      String?
+  type      String   @default("MENUDEO") // MENUDEO, MAYOREO
+  points    Int      @default(0) // Loyalty program
+  orders    Order[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id             String      @id @default(cuid())
+  name           String
+  description    String?
+  price          Float // Default retail price
+  wholesalePrice Float // Wholesale price
+  cost           Float // Production cost
+  stock          Int         @default(0)
+  isPublic       Boolean     @default(true) // Visible on catalog
+  orderItems     OrderItem[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  customerId     String
+  customer       Customer    @relation(fields: [customerId], references: [id])
+  totalAmount    Float
+  status         String      @default("PENDING") // PENDING, PAID, CANCELLED
+  deliveryStatus String      @default("PENDING") // PENDING, DELIVERED
+  deliveryZone   String?
+  deliveryDate   DateTime?
+  items          OrderItem[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Float // Snapshotted price at time of order
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Expense {
+  id          String   @id @default(cuid())
+  description String
+  amount      Float
+  category    String // MATERIA_PRIMA, LOGISTICA, OTROS
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
