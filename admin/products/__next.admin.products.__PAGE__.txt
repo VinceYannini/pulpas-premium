@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
 2:I[89846,["/pulpas-premium/_next/static/chunks/cb29e3fe0f3df382.js","/pulpas-premium/_next/static/chunks/bd5fecd6e8d86059.js"],"OutletBoundary"]
 3:"$Sreact.suspense"
-0:{"buildId":"hWOd2PUX1GbXD5u8U7LcE","rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-3xl font-bold mb-8","children":"Gestión de Inventario y Productos"}],["$","p",null,{"className":"text-slate-600 dark:text-slate-400","children":"Aquí se mostrará la tabla CRUD completa para crear, editar y eliminar sabores de pulpas e insumos."}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"1YcP1GeEByYxUVYXTLWwM","rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-3xl font-bold mb-8","children":"Gestión de Inventario y Productos"}],["$","p",null,{"className":"text-slate-600 dark:text-slate-400","children":"Aquí se mostrará la tabla CRUD completa para crear, editar y eliminar sabores de pulpas e insumos."}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"loading":null,"isPartial":false}
 4:null
