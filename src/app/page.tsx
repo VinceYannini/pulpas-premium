@@ -84,6 +84,87 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* About Us & Shipping Section */}
+      <section className="mt-24 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+
+          {/* Quiénes Somos */}
+          <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl p-8 lg:p-12 shadow-xl hover:shadow-2xl transition-shadow relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-amber-500 mb-6 drop-shadow-sm">
+              ¿Quiénes Somos?
+            </h2>
+            <p className="text-slate-600 dark:text-slate-300 font-medium leading-relaxed mb-6 text-lg">
+              En <strong className="text-slate-800 dark:text-white">PULPAS Premium</strong>, creemos que la naturaleza hace el mejor trabajo.
+              Somos una empresa orgullosamente mexicana dedicada a extraer, procesar y congelar
+              la mejor selección de fruta del campo para llevarla directamente hasta tu mesa.
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-center text-slate-700 dark:text-slate-200">
+                <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-500/20 flex items-center justify-center mr-4 text-orange-600 dark:text-orange-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                </div>
+                <span className="font-semibold text-lg">100% Fruta Natural</span>
+              </li>
+              <li className="flex items-center text-slate-700 dark:text-slate-200">
+                <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-500/20 flex items-center justify-center mr-4 text-orange-600 dark:text-orange-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                </div>
+                <span className="font-semibold text-lg">Sin químicos ni conservadores</span>
+              </li>
+              <li className="flex items-center text-slate-700 dark:text-slate-200">
+                <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-500/20 flex items-center justify-center mr-4 text-orange-600 dark:text-orange-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                </div>
+                <span className="font-semibold text-lg">Procesos estandarizados de calidad</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Envíos a todo México */}
+          <div className="bg-slate-900 dark:bg-slate-950 rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden group border border-slate-700">
+            <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
+              <svg className="w-full h-full text-indigo-500" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,100 C20,0 50,50 100,0 L100,100 Z" fill="currentColor" />
+              </svg>
+            </div>
+            <div className="relative z-10 flex flex-col h-full">
+              <div className="bg-indigo-500/20 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 shadow-[0_0_30px_rgba(99,102,241,0.3)]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8 text-indigo-400">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Envíos a Todo México
+              </h2>
+              <p className="text-slate-400 font-medium leading-relaxed mb-6 text-lg flex-1">
+                Garantizamos que el sabor natural llegue intacto hasta tu negocio o domicilio.
+                Contamos con <strong className="text-indigo-400">logística nacional en frío</strong> para asegurar que
+                nuestros productos conserven sus nutrientes, color y textura óptima.
+              </p>
+
+              <div className="bg-slate-800/80 rounded-2xl p-6 border border-slate-700 backdrop-blur-sm">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-white font-semibold">Cobertura Nacional</span>
+                  <span className="text-green-400 flex items-center text-sm font-bold">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse mr-2"></span>
+                    Activa
+                  </span>
+                </div>
+                <div className="w-full bg-slate-700 rounded-full h-2">
+                  <div className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full w-full"></div>
+                </div>
+                <p className="text-xs text-slate-400 mt-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 mr-1 text-slate-500"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
+                  Monitoreo de temperatura 24/7 en tránsito.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* Lead Capture Sector */}
       <section className="mt-24 mb-12 max-w-4xl mx-auto bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-white/10 rounded-3xl shadow-xl overflow-hidden relative">
         <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-pink-500/20 dark:bg-pink-600/10 rounded-full blur-3xl pointer-events-none"></div>
