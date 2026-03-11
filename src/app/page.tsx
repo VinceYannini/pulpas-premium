@@ -10,7 +10,7 @@ export default async function Home() {
   });
 
   // Reemplazar este número por el de tu Agente de WhatsApp
-  const wsNumber = '525500000000';
+  const wsNumber = '524462630747';
 
   return (
     <main className="min-h-screen p-6 md:p-12 max-w-7xl mx-auto">
