@@ -1,4 +1,6 @@
 // Contact.tsx — VerdeSer® contact / lead capture section
+'use client';
+
 export default function Contact() {
   const WS = 'https://wa.me/524462630747';
 
@@ -49,16 +51,6 @@ export default function Contact() {
                   textDecoration: 'none', transition: 'all 0.2s',
                   boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
                 }}
-                onMouseEnter={e => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = '#2E7D32';
-                  el.style.boxShadow = '0 4px 20px rgba(46,125,50,0.15)';
-                }}
-                onMouseLeave={e => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = '#D9D0BB';
-                  el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
-                }}
               >
                 <span style={{
                   width: 44, height: 44, borderRadius: 12,
@@ -101,7 +93,7 @@ export default function Contact() {
               </div>
 
               <div style={{ padding: 28 }}>
-                {/* Form fields (static — handled by WhatsApp) */}
+                {/* Form fields */}
                 {[
                   { id: 'contact-name', type: 'text', label: 'Nombre completo', placeholder: 'Ej. Juan Pérez' },
                   { id: 'contact-phone', type: 'tel', label: 'WhatsApp', placeholder: 'Ej. 55 1234 5678' },
@@ -119,11 +111,7 @@ export default function Contact() {
                       border: '1.5px solid #D9D0BB', borderRadius: 12,
                       fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: '#1a1a1a',
                       outline: 'none', background: '#FAFAFA',
-                      transition: 'border-color 0.2s',
-                    }}
-                    onFocus={e => (e.target.style.borderColor = '#2E7D32')}
-                    onBlur={e => (e.target.style.borderColor = '#D9D0BB')}
-                    />
+                    }} />
                   </div>
                 ))}
 
@@ -162,11 +150,8 @@ export default function Contact() {
                   Enviar y Contactar por WhatsApp
                 </a>
 
-                {/* Secondary: direct WA */}
-                <div style={{ textAlign: 'center' }}>
-                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: '#888' }}>
-                    — o —
-                  </span>
+                <div style={{ textAlign: 'center', margin: '8px 0' }}>
+                  <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: '#888' }}>— o —</span>
                 </div>
                 <a
                   href={`${WS}?text=${encodeURIComponent('¡Hola! Me gustaría recibir más información sobre las pulpas de VerdeSer.')}`}
@@ -188,6 +173,10 @@ export default function Contact() {
       <style>{`
         @media (max-width: 768px) {
           .contact-grid { grid-template-columns: 1fr !important; }
+        }
+        .contact-grid a:hover {
+          border-color: #2E7D32 !important;
+          box-shadow: 0 4px 20px rgba(46,125,50,0.15) !important;
         }
       `}</style>
     </section>
