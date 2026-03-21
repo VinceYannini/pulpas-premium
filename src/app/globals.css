@@ -1,35 +1,240 @@
 @import "tailwindcss";
 
+/* ============================================
+   VERDESER® — Design System
+   "Calidad Responsable"
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Palette */
+  --vs-green-900: #1B5E20;
+  --vs-green-800: #2E7D32;
+  --vs-green-600: #388E3C;
+  --vs-green-400: #66BB6A;
+  --vs-green-100: #C8E6C9;
+  --vs-gold-700:  #B8860B;
+  --vs-gold-500:  #D4A017;
+  --vs-gold-300:  #F5C842;
+  --vs-gold-100:  #FFF8DC;
+  --vs-cream:     #FAF5E4;
+  --vs-cream-dark:#F0E8D0;
+  --vs-red:       #C62828;
+
+  /* Semantic */
+  --background: var(--vs-cream);
+  --foreground: #1a1a1a;
+  --surface:    #FFFFFF;
+  --border:     #D9D0BB;
+
+  /* Typography */
+  --font-heading: var(--font-montserrat), 'Montserrat', sans-serif;
+  --font-body:    var(--font-outfit), 'Outfit', sans-serif;
 }
 
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================
+   BASE STYLES
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f8fafc;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--vs-cream);
   color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-  background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
-  background-attachment: fixed;
-  background-color: #0f172a;
-  /* Fallback for dark theme */
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 97%, 1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225, 39%, 80%, 1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339, 49%, 80%, 1) 0, transparent 50%);
-    background-color: #f8fafc;
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
 }
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulseGreen {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(76, 175, 80, 0); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.5); }
+  50%       { box-shadow: 0 0 0 16px rgba(212, 160, 23, 0); }
+}
+
+@keyframes leafFloat {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50%       { transform: translateY(-10px) rotate(5deg); }
+}
+
+.animate-fade-up   { animation: fadeUp 0.6s ease-out both; }
+.animate-fade-in   { animation: fadeIn 0.5s ease-out both; }
+.animate-pulse-green  { animation: pulseGreen 2s infinite; }
+.animate-pulse-gold   { animation: pulseGold 2s infinite; }
+.animate-leaf-float   { animation: leafFloat 4s ease-in-out infinite; }
+
+/* Animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ============================================
+   COMPONENT UTILITIES
+   ============================================ */
+
+/* Leaf divider pattern */
+.vs-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--vs-gold-500);
+  font-style: italic;
+  font-family: var(--font-heading);
+}
+.vs-divider::before,
+.vs-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--vs-gold-500), transparent);
+}
+
+/* Gold badge */
+.vs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 160, 23, 0.12);
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  color: var(--vs-gold-700);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--vs-green-800);
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  background: var(--vs-green-600);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.35);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--vs-gold-500);
+  color: var(--vs-green-900);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.btn-gold:hover {
+  background: var(--vs-gold-300);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 160, 23, 0.4);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: white;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 13px 27px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.7);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
+/* Card surfaces */
+.vs-card {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.vs-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+/* Section spacing */
+.vs-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Green section background */
+.vs-section-green {
+  background: var(--vs-green-900);
+  color: white;
+  padding: 80px 20px;
+}
+
+/* Cream section background */
+.vs-section-cream {
+  background: var(--vs-cream-dark);
+  padding: 80px 20px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: var(--vs-cream); }
+::-webkit-scrollbar-thumb  { background: var(--vs-green-400); border-radius: 4px; }
